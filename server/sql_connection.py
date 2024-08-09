@@ -3,6 +3,7 @@ import mysql.connector
 __cnx = None
 
 def get_connection():
+    print('Opening mySQL connection')
     global __cnx
     
     if __cnx is None:
