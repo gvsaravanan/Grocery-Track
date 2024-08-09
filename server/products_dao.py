@@ -4,7 +4,7 @@ def get_all_products(connection):
     cursor = connection.cursor()
     query = "SELECT grocery_store.products.product_id, grocery_store.products.product_name, grocery_store.products.uom_id, "\
         "grocery_store.products.price_per_unit, grocery_store.uom.uom_name FROM grocery_store.products inner join "\
-        "grocery_store.uom on grocery_store.products.uom_id = grocery_store.uom.uom_id"
+            "grocery_store.uom on grocery_store.products.uom_id = grocery_store.uom.uom_id"
     cursor.execute(query)
     
     response = []
@@ -20,7 +20,6 @@ def get_all_products(connection):
             }
         )
 
-    connection.close()
     
     return response
 

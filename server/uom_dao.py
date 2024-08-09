@@ -12,8 +12,6 @@ def get_uoms(connection):
                 'uom_name': uom_name
             }
         )
-
-    connection.close()
     
     return response
 

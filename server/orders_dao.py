@@ -6,7 +6,7 @@ def add_order(connection, order):
     order_query = ("INSERT INTO grocery_store.orders(customer_name, total, datetime) VALUES (%s, %s, %s)")
     
     order_data = (order['customer_name'], order['total'], datetime.now())
-    cursor.execute(order_query, data)
+    cursor.execute(order_query, order_data)
     
     order_id = cursor.lastrowid
     
@@ -68,8 +68,6 @@ def get_all_orders(connection):
                 'datetime': dt
             }
         )
-
-    cursor.close()
     
     for order in response:
         order['order_details'] = get_order_details(connection, order['order_id'])
